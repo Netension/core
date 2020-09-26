@@ -1,4 +1,5 @@
-![Netension.Core](https://github.com/Netension/core/blob/develop/banner.png) 
+__Netension.Core__ packages contain base types and interfaces.
+
 ![Publish](https://github.com/Netension/core/workflows/Publish/badge.svg)<br/>
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=Netension_core)<br/>
@@ -6,7 +7,8 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Netension_core&metric=coverage)](https://sonarcloud.io/dashboard?id=Netension_core)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Netension_core&metric=bugs)](https://sonarcloud.io/dashboard?id=Netension_core)
 
-Netension.Core packages contain base types and interfaces.
 
-# Nugets
-## 
+# Packages
+## [Netension.Core](https://www.nuget.org/packages/Netension.Core/)
+![Release](https://img.shields.io/nuget/v/Netension.Core?label=Release&style=flat-square)
+![Prerelease](https://img.shields.io/nuget/vpre/Netension.Core?label=Prerelease&style=flat-square)
