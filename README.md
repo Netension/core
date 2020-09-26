@@ -8,6 +8,6 @@ __Netension.Core__ packages contain base types and interfaces.
 
 # Packages
 ## [Netension.Core](https://www.nuget.org/packages/Netension.Core/)
-![Release](https://img.shields.io/nuget/v/Netension.Core?label=Release&style=flat-square)<br/>
+![Release](https://img.shields.io/nuget/v/Netension.Core?label=Release&style=plastic)<br/>
 Provides following base types:
 * [Enumeration](https://github.com/Netension/core/wiki/Netension.Core#enumeration-class)
