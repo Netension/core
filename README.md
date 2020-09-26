@@ -7,7 +7,6 @@ __Netension.Core__ packages contain base types and interfaces.
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Netension_core&metric=bugs)](https://sonarcloud.io/dashboard?id=Netension_core)
 
 # Packages
-## [Netension.Core](https://www.nuget.org/packages/Netension.Core/)
-![Release](https://img.shields.io/nuget/v/Netension.Core?label=Release&style=plastic)<br/>
+## [Netension.Core](https://www.nuget.org/packages/Netension.Core/) ![NuGet](https://img.shields.io/nuget/v/Netension.Core?label=NuGet&logo=NuGet&style=plastic)<br/>
 Provides following base types:
 * [Enumeration](https://github.com/Netension/core/wiki/Netension.Core#enumeration-class)
