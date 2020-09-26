@@ -8,5 +8,6 @@ __Netension.Core__ packages contain base types and interfaces.
 
 # Packages
 ## [Netension.Core](https://www.nuget.org/packages/Netension.Core/)
-![Release](https://img.shields.io/nuget/v/Netension.Core?label=Release&style=flat-square)
-![Prerelease](https://img.shields.io/nuget/vpre/Netension.Core?label=Prerelease&style=flat-square)
+![Release](https://img.shields.io/nuget/v/Netension.Core?label=Release&style=flat-square)<br/>
+### Enumeration
+[Enumeration](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/enumeration-classes-over-enum-types) base class.
