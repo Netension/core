@@ -73,6 +73,7 @@ namespace Netension.Core
             return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }
 
+        [ExcludeFromCodeCoverage]
         /// <inheritdoc/>
         public override int GetHashCode()
         {
