@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
@@ -37,9 +38,9 @@ namespace Netension.Core
         /// <returns></returns>
         public static IEnumerable<T> GetAll<T>() where T : Enumeration
         {
-            var fields = typeof(T).GetFields(BindingFlags.Public |
-                                             BindingFlags.Static |
-                                             BindingFlags.DeclaredOnly);
+            var fields = typeof(T).GetProperties(BindingFlags.Public |
+                                                 BindingFlags.Static |
+                                                 BindingFlags.DeclaredOnly);
 
             return fields.Select(f => f.GetValue(null)).Cast<T>();
         }
@@ -55,10 +56,12 @@ namespace Netension.Core
             return typeMatches && valueMatches;
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString() => Name;
 
         public int CompareTo(object obj) => Id.CompareTo(((Enumeration)obj).Id);
 
+        [ExcludeFromCodeCoverage]
         public override int GetHashCode()
         {
             return 2108858624 + Id.GetHashCode();
