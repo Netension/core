@@ -60,7 +60,7 @@ namespace Netension.Core
             return !(EqualOperator(left, right));
         }
 
-
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null || obj.GetType() != GetType())
@@ -73,7 +73,7 @@ namespace Netension.Core
             return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }
 
-        [ExcludeFromCodeCoverage]
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             return GetEqualityComponents()
