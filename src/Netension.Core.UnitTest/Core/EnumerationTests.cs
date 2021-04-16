@@ -1,15 +1,15 @@
 ﻿using AutoFixture;
-using System.Linq;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Netension.Core.UnitTest.Core
 {
     public class TestEnumeration : Enumeration
     {
-        public static TestEnumeration FirstTestEnumeration => new TestEnumeration(1, "TestEnumeration");
-        public static TestEnumeration SecondTestEnumeration => new TestEnumeration(2, "TestEnumeration");
+        public static TestEnumeration First => new TestEnumeration(0, default);
+        public static TestEnumeration Second => new TestEnumeration(1, default);
 
-        public TestEnumeration(int id, string name) 
+        public TestEnumeration(int id, string name)
             : base(id, name)
         {
         }
@@ -19,7 +19,8 @@ namespace Netension.Core.UnitTest.Core
     public class EnumerationTests
     {
 
-        [Fact(DisplayName = "Enumeration - Set id")]
+        [Fact(DisplayName = "[UNT-ESP001][Success]: Set Id")]
+        [Trait("Feature", "ESP - Enumeration set base properties")]
         public void Enumeration_SetId()
         {
             // Arrange
@@ -31,7 +32,8 @@ namespace Netension.Core.UnitTest.Core
             Assert.Equal(id, sut.Id);
         }
 
-        [Fact(DisplayName = "Enumeration - Set name")]
+        [Fact(DisplayName = "[UNT-ESP001][Success]: Set Name")]
+        [Trait("Feature", "ESP - Enumeration set base properties")]
         public void Enumeration_SetName()
         {
             // Arrange
@@ -43,34 +45,44 @@ namespace Netension.Core.UnitTest.Core
             Assert.Equal(name, sut.Name);
         }
 
-        [Fact(DisplayName = "Enumeration - Equals - Same ids")]
+        [Fact(DisplayName = "[UNT-EEQ001][Success]: Equal Enumeration instances")]
+        [Trait("Feature", "EEQ - Enumeration equality")]
         public void Enumeration_Equals_WithSameIds()
         {
             // Arrange
+            var id = 1;
+            var enumeration = new TestEnumeration(id, null);
+
             // Act
+            var result = enumeration.Equals(new TestEnumeration(id, null));
+
             // Assert
-            Assert.True(TestEnumeration.FirstTestEnumeration.Equals(TestEnumeration.FirstTestEnumeration));
+            Assert.True(result);
         }
 
-        [Fact(DisplayName = "Enumeration - Equals - Null")]
-        public void Enumeration_Equals_Null()
+        public static IEnumerable<object[]> UnequalTestData = new List<object[]>
+        {
+            new object[] { default },
+            new object[] { new object() },
+            new object[] { new TestEnumeration(2, null) }
+        };
+        [Theory(DisplayName = "[UNT-EEQ001][Failure]: Unequal Enumeration instances")]
+        [Trait("Feature", "EEQ - Enumeration equality")]
+        [MemberData(nameof(UnequalTestData))]
+        public void Enumeration_Unequals(object other)
         {
             // Arrange
+            var enumeration = new TestEnumeration(1, default);
+
             // Act
+            var result = enumeration.Equals(other);
+
             // Assert
-            Assert.False(TestEnumeration.FirstTestEnumeration.Equals(null));
+            Assert.False(result);
         }
 
-        [Fact(DisplayName = "Enumeration - Equals - DifferentType")]
-        public void Enumeration_Equals_DifferentType()
-        {
-            // Arrange
-            // Act
-            // Assert
-            Assert.False(TestEnumeration.FirstTestEnumeration.Equals(new object()));
-        }
-
-        [Fact(DisplayName = "Enumeration - GetAll")]
+        [Fact(DisplayName = "[UNT-EGA001]: GetAll Enumeration value")]
+        [Trait("Feature", "EGA - Get all value of Enumeration")]
         public void Enumeration_GetAll()
         {
             // Arrange
@@ -78,18 +90,7 @@ namespace Netension.Core.UnitTest.Core
             var result = Enumeration.GetAll<TestEnumeration>();
 
             // Assert
-            Assert.Equal(2, result.Count());
-            Assert.Contains(TestEnumeration.FirstTestEnumeration, result);
-            Assert.Contains(TestEnumeration.SecondTestEnumeration, result);
-        }
-
-        [Fact(DisplayName = "Enumeration - Equals - Different ids")]
-        public void Enumeration_Equals_WithDifferencIds()
-        {
-            // Arrange
-            // Act
-            // Assert
-            Assert.False(TestEnumeration.FirstTestEnumeration.Equals(TestEnumeration.SecondTestEnumeration));
+            Assert.Collection(result, value => value.Equals(TestEnumeration.First), value => value.Equals(TestEnumeration.Second));
         }
     }
 }
