@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace Netension.Core.Domain.Interfaces
 {
     public interface IRepository<TAggregate, TState>
-        where TAggregate : AggregateRoot<TState>
+        where TAggregate : IMemento<TState>
         where TState : class
     {
         Task<TAggregate> GetByIdAsync(Guid id, CancellationToken cancellationToken);
