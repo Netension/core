@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace Netension.Core.Domain.Interfaces
 {
-    public interface IRepository<TAggregate, TEntity>
-        where TAggregate : AggregateRoot<TEntity>
-        where TEntity : class, IEntity
+    public interface IRepository<TAggregate, TState>
+        where TAggregate : AggregateRoot<TState>
+        where TState : class
     {
         Task<TAggregate> GetByIdAsync(Guid id, CancellationToken cancellationToken);
         Task InsertAsnyc(TAggregate aggregate, CancellationToken cancellationToken);

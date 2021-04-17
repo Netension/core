@@ -3,7 +3,6 @@
 namespace Netension.Core.Domain
 {
     public class AggregateRoot<TState> : IMemento<TState>
-        where TState : IEntity
     {
         TState IMemento<TState>.State { get; set; }
 
