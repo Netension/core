@@ -4,7 +4,7 @@
     {
         public string Message { get; }
 
-        public VerificationErrorEnumeration(int id, string name, string message) 
+        public VerificationErrorEnumeration(int id, string name, string message)
             : base(id, name)
         {
             Message = message;
