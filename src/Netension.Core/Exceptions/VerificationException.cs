@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Netension
 {
     [Serializable]
-    public class VerificationException : Exception
+    public class VerificationException : System.Exception
     {
         public int Code { get; }
 
@@ -28,7 +28,7 @@ namespace Netension
         {
         }
 
-        public VerificationException(string message, Exception innerException)
+        public VerificationException(string message, System.Exception innerException)
             : base(message, innerException)
         {
         }

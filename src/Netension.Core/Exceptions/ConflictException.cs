@@ -1,4 +1,4 @@
-﻿using Netension.Error;
+﻿using Netension.Exception;
 
 namespace Netension
 {
