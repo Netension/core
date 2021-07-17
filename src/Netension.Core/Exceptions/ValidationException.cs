@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Netension
 {
-    public class ValidationError
+    public class ValidationFailure
     {
         public string Property { get; }
         public int Code { get; }
         public string Message { get; }
 
-        public ValidationError(string property, int code, string message)
+        public ValidationFailure(string property, int code, string message)
         {
             Property = property;
             Code = code;
@@ -22,14 +22,14 @@ namespace Netension
     public class ValidationException : System.Exception
     {
         public int Code { get; }
-        public IEnumerable<ValidationError> Errors { get; }
+        public IEnumerable<ValidationFailure> Failures { get; }
 
         public ValidationException() { }
-        public ValidationException(int code, IEnumerable<ValidationError> errors, string message)
+        public ValidationException(int code, IEnumerable<ValidationFailure> failures, string message)
             : base(message)
         {
             Code = code;
-            Errors = errors;
+            Failures = failures;
         }
         public ValidationException(string message) : base(message) { }
         public ValidationException(string message, System.Exception inner) : base(message, inner) { }
