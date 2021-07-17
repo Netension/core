@@ -1,4 +1,6 @@
-﻿namespace Netension.Core.Enumerations
+﻿using Netension.Core;
+
+namespace Netension.Exception
 {
     public class VerificationErrorEnumeration : Enumeration
     {

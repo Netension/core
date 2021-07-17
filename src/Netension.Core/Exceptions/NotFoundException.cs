@@ -1,6 +1,6 @@
 ﻿using Netension.Core.Enumerations;
 
-namespace Netension.Core.Exceptions
+namespace Netension
 {
     public class NotFoundException : VerificationException
     {
@@ -8,6 +8,18 @@ namespace Netension.Core.Exceptions
             : base(VerificationErrorEnumeration.NotFound.Id, string.Format(VerificationErrorEnumeration.NotFound.Message, message))
         {
 
+        }
+
+        public NotFoundException(int code, string message) : base(code, message)
+        {
+        }
+
+        public NotFoundException() : base()
+        {
+        }
+
+        public NotFoundException(string message, System.Exception innerException) : base(message, innerException)
+        {
         }
     }
 }

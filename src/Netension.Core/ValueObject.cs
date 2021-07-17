@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Netension.Core
+namespace Netension
 {
     /// <summary>
     /// Base class of value objects.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Netension.Core.Exceptions
+namespace Netension
 {
     [Serializable]
     public class VerificationException : Exception
