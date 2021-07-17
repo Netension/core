@@ -1,4 +1,4 @@
-﻿using Netension.Core.Enumerations;
+﻿using Netension.Error;
 
 namespace Netension
 {

@@ -1,6 +1,6 @@
 ﻿using Netension.Core;
 
-namespace Netension.Exception
+namespace Netension.Error
 {
     public class VerificationErrorEnumeration : Enumeration
     {
