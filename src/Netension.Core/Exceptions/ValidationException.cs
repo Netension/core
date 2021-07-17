@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Netension
 {
-    public class ValidationFailure
+    public class ValidationFailure : ValueObject
     {
         public string Property { get; }
         public int Code { get; }
@@ -15,6 +15,8 @@ namespace Netension
             Code = code;
             Message = message;
         }
+
+        protected override IEnumerable<object> GetEqualityComponents() => new object[] { Property, Code, Message };
     }
 
 
